@@ -13,13 +13,13 @@
       - /u01/java/jdk1.8.0_150
       - /u01/java/jdk1.8.0_194
       - /u01/java/jdk1.8.0_195
-  - name: Check if swift-storage services are deployed
+  - name: Check if OracleWeblogicNodeManager services are deployed
     command: systemctl is-enabled --quiet "{{ item }}"
     register: weblogic_services_enabled
     ignore_errors: true
     with_items:
-      - OracleWeblogic_11c
-      - OracleWeblogic_12c
+      - OracleWeblogicNmService_11c
+      - OracleWeblogicNmService_12c
   - debug:
        var: weblogic_services_enabled
   - name: Check that services are running
